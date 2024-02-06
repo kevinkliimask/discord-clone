@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
-import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Open_Sans } from "next/font/google";
+import type { Metadata } from "next";
+
+import "./globals.css";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
