@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     const profile = await currentProfile();
 
     if (!profile) {
-      return new NextResponse("Unauthorized.", { status: 401 });
+      return new NextResponse("Unauthorized", { status: 401 });
     }
 
     const server = await db.server.create({
@@ -37,6 +37,6 @@ export async function POST(req: Request) {
     return NextResponse.json(server);
   } catch (error) {
     console.error("[SERVER_POST]", error);
-    return new NextResponse("Internal server error.", { status: 500 });
+    return new NextResponse("Internal server error", { status: 500 });
   }
 }
