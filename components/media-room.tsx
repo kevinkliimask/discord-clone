@@ -1,7 +1,6 @@
 "use client";
 
 import "@livekit/components-styles";
-import { Channel } from "@prisma/client";
 import { LiveKitRoom, VideoConference } from "@livekit/components-react";
 import { Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -16,12 +15,12 @@ interface MediaRoomProps {
 export const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
   const { user } = useUser();
   const [token, setToken] = useState("");
-  console.log(user?.fullName);
+  console.log(user?.username);
 
   useEffect(() => {
-    if (!user?.fullName) return;
+    if (!user?.username) return;
 
-    const name = user.fullName;
+    const name = user.username;
 
     (async () => {
       try {
@@ -32,7 +31,7 @@ export const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
         console.log(error);
       }
     })();
-  }, [user?.fullName, chatId]);
+  }, [user?.username, chatId]);
 
   if (token === "") {
     return (
